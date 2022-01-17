@@ -5,7 +5,7 @@ public  abstract class Piece {
     public abstract int getNumber();
     public abstract String getInitials();
     public abstract ArrayList<Integer> moveNumber(int position);
-    public abstract void classChange();
+    
     public abstract void setNumber(int number);
     public int upper(int position){
         int result = position;

@@ -1,13 +1,25 @@
 package jp.ac.uryukyu.ie.e215709;
 import java.util.ArrayList;
+/**
+ * 盤クラス
+ * ArrayList<Piece> bordList; //駒を要素とし、盤を表す配列
+ */
 public class Bord {
     private ArrayList<Piece> bordList = new ArrayList<Piece>(12);
     
-
+    /**
+     * 駒を要素とし、盤を表す配列を返すメソッド
+     * @return　bordList 駒を要素とし、盤を表す配列
+     */
     public ArrayList<Piece> getBordList(){
         return this.bordList;
     }
-
+    /**
+     * 
+     * @param position 動かしたい駒の位置
+     * @param wantPosition　駒の移動先
+     * @param player　駒を動かすplayer
+     */
     public void pieceAction(int position,int wantPosition,Player player){
         
         ArrayList<Integer> storePosition = bordList.get(position).moveNumber(position);
@@ -35,6 +47,9 @@ public class Bord {
             }
         }
     }
+    /**
+     * 盤を初期状態に設定するメソッド。
+     */
     public void setBord(){
         for(int i=0; i<12; i++){
         this.bordList.add(new Empty());
@@ -48,7 +63,9 @@ public class Bord {
         this.bordList.set(2,new Giraffe());
         this.bordList.set(9,new Giraffe(1,"麒"));
     }
-
+    /**
+     * 盤を標準出力するメソッド
+     */
     public void printBord(){
         int number = 0;
         for(var i:bordList){

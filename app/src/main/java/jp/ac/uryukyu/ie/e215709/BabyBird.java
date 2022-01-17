@@ -1,5 +1,12 @@
 package jp.ac.uryukyu.ie.e215709;
 import java.util.ArrayList;
+/**
+ * ひよこクラス
+ * String name; //ひよこの名前
+ * String initials; ひよこの頭文字
+ * int number; //ひよこの番号
+ * ArrayList<Integer> actionPoint; //ひよこの行動可能領域
+ */
 public class BabyBird extends Piece {
     private final String name = "ひよこ";
     private  String initials = "ひ";
@@ -77,10 +84,7 @@ public class BabyBird extends Piece {
         return this.actionPoint;
     }
 
-    @Override
-    public void classChange(){
-        System.out.println("鶏に進化します！");
-    }
+    
 
     
 }

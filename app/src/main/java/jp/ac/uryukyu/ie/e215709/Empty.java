@@ -1,5 +1,12 @@
 package jp.ac.uryukyu.ie.e215709;
 import java.util.ArrayList;
+/**
+ * 空クラス
+ * String name; //空の名前
+ * String initials; 空の頭文字
+ * int number; //空の番号
+ * ArrayList<Integer> actionPoint; //空の行動可能領域
+ */
 public class Empty extends Piece{
     private final String name = "空";
     private  final String initials = "　";
