@@ -8,22 +8,31 @@ public class Bord {
         return this.bordList;
     }
 
-    public void pieceAction(int position,int wantPosition){
+    public void pieceAction(int position,int wantPosition,Player player){
         
-        int[] storePosition = bordList.get(position).moveNumber(position);
-        
-        for(int i:storePosition){
-            if(i == wantPosition){
-                
-                if (bordList.get(wantPosition).getNumber() == bordList.get(position).getNumber()){
-                    System.out.println("行動できません");
-                }else{
-                    bordList.set(wantPosition,bordList.get(position));
-                    bordList.set(position,new Empty());
-                    System.out.println("行動できた");
+        ArrayList<Integer> storePosition = bordList.get(position).moveNumber(position);
+        if(position!=wantPosition){
+            for(var i:storePosition){
+                if(i == wantPosition){
+                    
+                    if (bordList.get(wantPosition).getNumber() == bordList.get(position).getNumber()){
+                        System.out.println("行動できません");
+                    }else if(bordList.get(wantPosition).getNumber() == 10) {
+                        bordList.set(wantPosition,bordList.get(position));
+                        bordList.set(position,new Empty());
+                        System.out.println("行動できた");
+                    }else{
+                        player.getPiece(bordList.get(wantPosition));
+                        bordList.set(wantPosition,bordList.get(position));
+                        bordList.set(position,new Empty());
+                        System.out.println("行動できた");
+                    }
                 }
+                
+
+                
+                
             }
-            
         }
     }
     public void setBord(){
@@ -32,7 +41,12 @@ public class Bord {
         }
         this.bordList.set(4,new BabyBird());
         this.bordList.set(7,new BabyBird(1,"雛"));
-        
+        this.bordList.set(1,new Lion());
+        this.bordList.set(10,new Lion(1,"王"));
+        this.bordList.set(0,new Elephant());
+        this.bordList.set(11,new Elephant(1,"象"));
+        this.bordList.set(2,new Giraffe());
+        this.bordList.set(9,new Giraffe(1,"麒"));
     }
 
     public void printBord(){
